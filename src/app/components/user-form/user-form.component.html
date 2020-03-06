@@ -46,7 +46,13 @@
         Phone is required
       </small>
     </div>
-    <button [disabled]="userForm.status == 'INVALID'" type="submit" class="btn btn-success float-right" >Submit</button>
+    <button
+      [disabled]="userForm.status == 'INVALID'"
+      type="submit"
+      class="btn btn-success float-right"
+    >
+      {{idUserEdit ? "Save" : "Add"}}
+    </button>
     <button type="button" class="btn btn-secondary float-right mr-2" (click)="closeFormEmit()">Close</button>
   </form>
 </div>
