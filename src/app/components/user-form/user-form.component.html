@@ -1,0 +1,52 @@
+<div class="user-form">
+  <form class="p-3" [formGroup]="userForm" (ngSubmit)="submitForm(userForm.value)">
+    <div class="form-group" >
+      <label >Username</label>
+      <input type="text" class="form-control" formControlName="userName">
+      <small
+        class="mt-2 text-danger"
+        *ngIf="userForm.controls.userName.errors?.required && userForm.controls.userName.touched"
+      >
+        Username is required
+      </small>
+    </div>
+    <div class="form-group">
+      <label >Name</label>
+      <input type="text" class="form-control" formControlName="name">
+      <small
+        class="mt-2 text-danger"
+        *ngIf="userForm.controls.name.errors?.required && userForm.controls.name.touched"
+      >
+        Name is required
+      </small>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email">
+      <small
+        class="mt-2 text-danger"
+        *ngIf="userForm.controls.email.errors?.required && userForm.controls.email.touched"
+      >
+        Email is required
+      </small>
+      <small
+        class="mt-2 text-danger"
+        *ngIf="userForm.controls.email.errors?.email"
+      >
+        Please provide a valid email address
+      </small>
+    </div>
+    <div class="form-group">
+      <label >Phone</label>
+      <input type="number" class="form-control" formControlName="phone">
+      <small
+        class="mt-2 text-danger"
+        *ngIf="userForm.controls.phone.errors?.required && userForm.controls.phone.touched"
+      >
+        Phone is required
+      </small>
+    </div>
+    <button [disabled]="userForm.status == 'INVALID'" type="submit" class="btn btn-success float-right" >Submit</button>
+    <button type="button" class="btn btn-secondary float-right mr-2" (click)="closeFormEmit()">Close</button>
+  </form>
+</div>

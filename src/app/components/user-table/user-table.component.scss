@@ -1,0 +1,25 @@
+.user-table {
+  table {
+    background: #fff;
+    border-radius: 3px;
+    thead {
+      tr {
+        th {
+          border: none;
+          &:last-child {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          &:last-child {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

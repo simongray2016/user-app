@@ -1,0 +1,34 @@
+<div class="user-table mt-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+          <input type="checkbox" [checked]="isCheckedAll$ | async" (click)="toggleAll()">
+        </th>
+        <th scope="col">Username</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col" (click)="deleteSelected()">
+          <i class="icon-trash font-weight-bold"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of users$ |async"
+      >
+        <td>
+          <input [checked]="user.isChecked" type="checkbox" (click)="checkUser(user.id)">
+        </td>
+        <td (click)="editUserEmit(user.id)">{{user.userName}}</td>
+        <td (click)="editUserEmit(user.id)">{{user.name}}</td>
+        <td (click)="editUserEmit(user.id)">{{user.email}}</td>
+        <td (click)="editUserEmit(user.id)">{{user.phone}}</td>
+        <td (click)="deleteUser(user.id)">
+          <i class="icon-trash"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
